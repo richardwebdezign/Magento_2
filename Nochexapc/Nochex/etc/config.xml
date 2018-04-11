@@ -8,16 +8,14 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <payment>
-            <nochexapc_nochex>
+            <nochex>
                 <active>1</active>
                 <model>Nochexapc\Nochex\Model\Nochex</model>
                 <order_status>pending</order_status>
                 <title>Credit / Debit (Nochex)</title>
                 <allowspecific>0</allowspecific>
-                <group>nochex</group>
-				<can_use_checkout>1</can_use_checkout>
 				<sort_order>1</sort_order>
-            </nochexapc_nochex>          
+            </nochex>          
         </payment>
     </default>
 </config>

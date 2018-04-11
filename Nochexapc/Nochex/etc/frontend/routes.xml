@@ -13,7 +13,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
         <route id="nochex" frontName="nochex">
-            <module name="Nochexapc_Nochex" after="Magento_Checkout" />
+            <module name="Nochexapc_Nochex" />
         </route>
     </router>
 </config>

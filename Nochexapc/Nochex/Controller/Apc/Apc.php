@@ -42,7 +42,7 @@ $postvars = http_build_query($_POST);
 	 
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-	$headers .= 'From: james.lugton@nochex.com' . "\r\n";
+	$headers .= 'From: APC@nochex.com' . "\r\n";
 
 	//// Curl code to post variables back
 	$ch = curl_init(); // Initialise the curl tranfer

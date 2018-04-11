@@ -7,11 +7,11 @@
 -->
 <payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
-    <groups>
+    <!--groups>
         <group id="nochex">
             <label>Nochex</label>
         </group>
-    </groups>
+    </groups-->
     <methods>      
         <method name="nochex">
             <allow_multiple_address>1</allow_multiple_address>

@@ -36,7 +36,7 @@ class NochexInstructionsConfigProvider implements ConfigProviderInterface
         Escaper $escaper
     ) {
         $this->escaper = $escaper;
-        foreach ($this->methodCodes as $code) {
+        foreach ($this->methodCodes as $code) { 
             $this->methods[$code] = $paymentHelper->getMethodInstance($code);
         }
     }
@@ -48,6 +48,7 @@ class NochexInstructionsConfigProvider implements ConfigProviderInterface
     {
         $config = [];
         foreach ($this->methodCodes as $code) {
+
             if ($this->methods[$code]->isAvailable()) {
                 $config['payment']['instructions'][$code] = $this->getInstructions($code);
             }

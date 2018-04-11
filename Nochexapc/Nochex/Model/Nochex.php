@@ -30,14 +30,30 @@ class Nochex extends \Magento\Payment\Model\Method\AbstractMethod
      * @var string
      */
     protected $_infoBlockType = 'Nochexapc\Nochex\Block\Info\Nochex';
-
     /**
      * Availability option
      *
      * @var bool
      */
-    protected $_isOffline = true;
-
+    protected $_canUseInternal = false;
+    /**
+     * Availability option
+     *
+     * @var bool
+     */
+    protected $_canUseCheckout = true;
+    /**
+     * Availability option
+     *
+     * @var bool
+     */
+    protected $_isOffline = false;
+    /**
+     * Availability option
+     *
+     * @var bool
+     */
+    protected $_canOrder = true;
     /**
      * @return string
      */
@@ -75,5 +91,10 @@ class Nochex extends \Magento\Payment\Model\Method\AbstractMethod
         return $this->_urlBuilder->getUrl('nochex/success/success');
     }
 	
+	 public function isAvailable(
+        \Magento\Quote\Api\Data\CartInterface $quote = null
+    ) {
+        return parent::isAvailable($quote);
+    }
 	
 }
