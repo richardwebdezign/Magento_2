@@ -1,8 +1,7 @@
 <?php
 /**
  *
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
+ * Copyright Â© 2019 Nochex
  */
 namespace Nochexapc\Nochex\Controller\Success;
 
@@ -62,7 +61,7 @@ class Success extends \Magento\Checkout\Controller\Onepage
 	$saleoddtableName = $resource->getTableName('sales_order_item');
 	
 	
-	$IDsql = "Select billing_address_id, shipping_address_id, grand_total FROM " . $saletableName . " Where entity_id = '".$lastOrderId ."'";
+	$IDsql = "Select billing_address_id, shipping_address_id, grand_total, increment_id FROM " . $saletableName . " Where entity_id = '".$lastOrderId ."'";
 	
 	
 	$billing_id = $connection->fetchAll($IDsql);
@@ -97,6 +96,7 @@ class Success extends \Magento\Checkout\Controller\Onepage
 	$testTransaction = $this->method->getTestTransaction();
 		
 	$callbackURL = $storeManager->getStore()->getBaseUrl() . "nochex/apc/apc/";
+	/*$successURL = $storeManager->getStore()->getBaseUrl() . "checkout/onepage/success/";*/
 	$successURL = $storeManager->getStore()->getBaseUrl() . "checkout/onepage/success/";
 	$cancel_url = $storeManager->getStore()->getBaseUrl(); 
 	
@@ -104,7 +104,7 @@ class Success extends \Magento\Checkout\Controller\Onepage
 		
 	if($xml == 1){
 	
-	$description = "Order created for ".$lastOrderId;
+	$description = "Order created for ".$billing_id[0]['increment_id']."";
 	
 	}else{
 	
@@ -150,7 +150,8 @@ class Success extends \Magento\Checkout\Controller\Onepage
    
 		<input name=\"merchant_id\" type=\"hidden\" value=\"".$merchantId."\"/>
 		<input name=\"amount\" type=\"hidden\" value=\"".number_format($billing_id[0]['grand_total'], 2, '.', '')."\" />
-		<input name=\"order_id\" type=\"hidden\" value=\"". $lastOrderId ."\" />
+		<input name=\"optional_1\" type=\"hidden\" value=\"". $lastOrderId ."\" />
+		<input name=\"order_id\" type=\"hidden\" value=\"". $billing_id[0]['increment_id'] ."\" />
 		<input name=\"description\" type=\"hidden\" value=\"". $description ."\" />
 		<input name=\"xml_item_collection\" type=\"hidden\" value=\"". $xmlCollection ."\" />
 				
