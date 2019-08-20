@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright © 2019 Nochex
- * created by Nochex
+ * Copyright © 2015 Inchoo d.o.o.
+ * created by Zoran Salamun(zoran.salamun@inchoo.net)
  */
 namespace Nochexapc\Nochex\Controller\Apc;
 
