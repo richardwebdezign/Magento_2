@@ -22,6 +22,9 @@ class Success extends \Magento\Checkout\Controller\Onepage
     public function execute()
     {
 	
+
+	$storeManager = $this->_objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+	
 	$lastOrderId = $this->getOnepage()->getCheckout()->getLastOrderId();
 
 	$resource = $this->_objectManager->get('Magento\Framework\App\ResourceConnection');
@@ -40,8 +43,9 @@ class Success extends \Magento\Checkout\Controller\Onepage
 		
 	$billing_id = $connection->fetchAll($ID1sql);
 	
+	$successURL = $storeManager->getStore()->getBaseUrl() . "checkout/";
 	
-	if($payment_method[0]["method"] == "nochex" & $billing_id[0]['status'] == "pending"){
+	if($payment_method[0]["method"] == "nochex" & $billing_id[0]['status'] == "pending" & $_SERVER['HTTP_REFERER'] == $successURL){
 	
 	return $this->resultRedirectFactory->create()->setPath('nochex/success/success/');
 		
@@ -59,7 +63,7 @@ class Success extends \Magento\Checkout\Controller\Onepage
         );
 			
 	return $resultPage;
-	}
+}
 		
 		
     }
