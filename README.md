@@ -13,10 +13,15 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 =====================
 
+2.4
+===
+
+Module adaptations and bug fixes for Magento 2.3.x
+
 2.3
 ===
 
-Module adaptations and bug fixes for Magento 2.3
+Module adaptations and bug fixes for Magento 2.3.x
 APC - TLS 1.2
 
 1 
