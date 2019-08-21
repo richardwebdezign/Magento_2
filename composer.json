@@ -6,7 +6,7 @@
     "license": "GPL-3.0",
     "require": {
         "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
-        "magento/module-config": "102.0.*",
+        "magento/module-config": "~101.0.0",
         "magento/module-store": "102.0.*",
         "magento/module-checkout": "102.0.*",
         "magento/module-sales": "102.0.*",
